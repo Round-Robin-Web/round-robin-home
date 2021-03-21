@@ -3,12 +3,11 @@ import styles from './layout.module.scss'
 import Link from 'next/link'
 import Header from './Header'
 
-const name = 'Your name'
-export const siteTitle = 'Next.js Sample Website'
+export const siteTitle = 'Round Robin Home Page'
 
 export default function Layout({ children, home }) {
   return (
-    <div classname={styles.container}>
+    <div>
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <meta
@@ -25,18 +24,18 @@ export default function Layout({ children, home }) {
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <Header></Header>
-      {/* <header classname={styles.header}>
+      {/* <header className={styles.header}>
         {home ? (
           <>
             <Image
               priority
               src="/images/profile.jpg"
-              classname={utilStyles.borderCircle}
+              className={utilStyles.borderCircle}
               height={144}
               width={144}
               alt={name}
             />
-            <h1 classname={utilStyles.heading2Xl}>{name}</h1>
+            <h1 className={utilStyles.heading2Xl}>{name}</h1>
           </>
         ) : (
           <>
@@ -45,29 +44,22 @@ export default function Layout({ children, home }) {
                 <Image
                   priority
                   src="/images/profile.jpg"
-                  classname={utilStyles.borderCircle}
+                  className={utilStyles.borderCircle}
                   height={108}
                   width={108}
                   alt={name}
                 />
               </a>
             </Link>
-            <h2 classname={utilStyles.headingLg}>
+            <h2 className={utilStyles.headingLg}>
               <Link href="/">
-                <a classname={utilStyles.colorInherit}>{name}</a>
+                <a className={utilStyles.colorInherit}>{name}</a>
               </Link>
             </h2>
           </>
         )}
       </header> */}
       <main>{children}</main>
-      {!home && (
-        <div classname={styles.backToHome}>
-          <Link href="/">
-            <a>← Back to home</a>
-          </Link>
-        </div>
-      )}
     </div>
   )
 }

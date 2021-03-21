@@ -12,9 +12,9 @@ export default function Header(){
                         <Image
                             priority
                             src = '/images/RoundLogo.png'
-                            className={utilStyles.image}  //仮置き
-                            width={100}
-                            height={100}
+                            className={utilStyles.image}  
+                            width={110}
+                            height={110}
                         />
                         </>
                     </div>
@@ -39,6 +39,8 @@ export default function Header(){
                         <a className={Styles.headerToContacts}>Contact</a>
                     </Link>
                 </div>
+                <div className={Styles.clear}></div>
+            
             </header>
     )
 }

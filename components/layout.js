@@ -3,6 +3,7 @@ import styles from './layout.module.scss'
 import Link from 'next/link'
 import Header from './Header'
 
+
 export const siteTitle = 'Round Robin Home Page'
 
 export default function Layout({ children, home }) {

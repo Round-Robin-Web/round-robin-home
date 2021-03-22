@@ -6,41 +6,37 @@ import Image from 'next/image'
 export default function Header(){
     return(
             <header className={Styles.header}>
-                <div className={Styles.headerLeft}>
-                    <div className={Styles.headerLogo}>
-                        <>
+                <div className= 'd-inline-flex p-2 bd-highlight'>
+                    <div className="">
                         <Image
                             priority
                             src = '/images/RoundLogo.png'
-                            className={utilStyles.image}  
                             width={110}
                             height={110}
                         />
-                        </>
                     </div>
-                    <div className={Styles.headerTitle}>
+                    <div className='pt-4 fs-2 fw-bold'>
                         <p>Round Robin</p>
                     </div>
                 </div>
-                <div className={Styles.headerRight}>
+                <div className="d-flex flex-row bd-highlight mb-3 float-end fs-5 fw-bold mt-3 pt-1">
                     <Link href='/'>
-                        <a className={Styles.headerToHome}>Home</a>
+                        <a className="p-4 bd-highlight text-dark">Home</a>
                     </Link>
                     <Link href='/posts/about'>
-                        <a className={Styles.headerToAbout}>About</a>
+                        <a className="p-4 bd-highlight text-dark">About</a>
                     </Link>
                     <Link href='/posts/member'>
-                        <a className={Styles.headerToMember}>Member</a>
+                        <a className="p-4 bd-highlight text-dark">Member</a>
                     </Link>
                     <Link href='/posts/works'>
-                        <a className={Styles.headerToWorks}>Works</a>
+                        <a className="p-4 bd-highlight text-dark">Works</a>
                     </Link>
                     <Link href='/posts/contects'>
-                        <a className={Styles.headerToContacts}>Contact</a>
+                        <a className="p-4 bd-highlight text-dark">Contact</a>
                     </Link>
                 </div>
-                <div className={Styles.clear}></div>
-            
+                <div classNmae={Styles.clear}></div>
             </header>
     )
 }

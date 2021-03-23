@@ -1,15 +1,13 @@
 import Head from 'next/head'
-import Image from 'next/image'
-import styles from './layout.module.scss'
-import utilStyles from '../styles/utils.module.scss'
 import Link from 'next/link'
+import Header from './Header'
 
-const name = 'Your Name'
-export const siteTitle = 'Next.js Sample Website'
+
+export const siteTitle = 'Round Robin Home Page'
 
 export default function Layout({ children, home }) {
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <meta
@@ -25,7 +23,8 @@ export default function Layout({ children, home }) {
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <header className={styles.header}>
+      <Header></Header>
+      {/* <header className={styles.header}>
         {home ? (
           <>
             <Image
@@ -59,15 +58,8 @@ export default function Layout({ children, home }) {
             </h2>
           </>
         )}
-      </header>
+      </header> */}
       <main>{children}</main>
-      {!home && (
-        <div className={styles.backToHome}>
-          <Link href="/">
-            <a>← Back to home</a>
-          </Link>
-        </div>
-      )}
     </div>
   )
 }

@@ -1,0 +1,32 @@
+#mainPassage {
+    position: absolute;
+    top: 270px;
+    left: 150px;
+    .fontAdjust {
+        font-size: 58px;
+        font-weight: 780;
+        transform: scale(1.0,1.1);
+            line-height: 70px;
+    }
+    #subPassage {
+        line-height: 60px;
+    }
+        
+    .greenButton {
+        border-radius: 30px ;
+        background-color: rgb(57,219,190);
+        padding: 17px 28px;
+        font-size: 24px;
+        font-weight: 550;
+        margin: 0 10px 10px 0;
+    }
+    .blueButton {
+        border-radius: 30px ;
+        background-color: rgb(59,161,219);
+        padding: 17px 52px;
+        font-size: 24px;
+        font-weight: 550;
+        margin: 10px;
+    }
+    
+}

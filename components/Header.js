@@ -19,16 +19,16 @@ return(
         <Link href='/'>
           <a className="p-3 mt-1">Home</a>
         </Link>
-        <Link href='/about'>
+        <Link href='/About'>
           <a className="p-3 mt-1">About</a>
         </Link>
-        <Link href='/member'>
+        <Link href='/Member'>
           <a className="p-3 mt-1">Member</a>
         </Link>
-        <Link href='/works'>
+        <Link href='/Works'>
           <a className="p-3 mt-1">Works</a>
         </Link>
-        <Link href='/contects'>
+        <Link href='/Contects'>
           <a className="p-3 mt-1">Contact</a>
         </Link>
     </div>

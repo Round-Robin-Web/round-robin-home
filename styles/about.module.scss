@@ -1,0 +1,28 @@
+#about {
+    right: 120px;
+    top: 240px;
+
+    #title {
+        font-size: 64px;
+        transform: scale(1.2,1.1);
+    }
+
+    #firstDetail {
+        position: relative;
+        left: 20px;
+    }
+    #secondDetail {
+        position: relative;
+        left: 20px;
+    }
+    #toMember {
+        position: relative;
+        top: 30px;
+        left: 120px;
+        Button {
+            background-color: 	rgb(57,219,190);
+            border: rgb(57,219,190) 1px;
+        }
+    }
+}
+

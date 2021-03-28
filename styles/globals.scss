@@ -1,3 +1,4 @@
+@import "~bootstrap/scss/bootstrap.scss";
 html,
 body {
   padding: 0;
@@ -8,20 +9,32 @@ body {
   font-size: 18px;
 }
 
+#header{
+  z-index: $zindex-tooltip;
+}
+
 * {
   box-sizing: border-box;
 }
 
 a {
-  color: #0070f3;
+  color: #000;
   text-decoration: none;
 }
 
 a:hover {
-  text-decoration: underline;
+  color: #000;
 }
 
 img {
   max-width: 100%;
   display: block;
+}
+
+#button {
+  border-radius: 40px;
+  height: 60px;
+  width: 240px;  
+  font-size: 24px;
+  font-weight: 550; 
 }

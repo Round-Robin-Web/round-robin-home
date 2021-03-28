@@ -1,0 +1,32 @@
+#mainPassage {
+    position: absolute;
+    top: 270px;
+    left: 150px;
+    .fontAdjust {
+        font-size: 58px;
+        font-weight: 780;
+        transform: scale(1.0,1.1);
+            line-height: 70px;
+    }
+    #subPassage {
+        line-height: 60px;
+    }
+        
+    #toMember {
+
+        Button {
+            background-color: rgb(57,219,190);
+            border: rgb(57,219,190) 1px;
+        }
+    }
+    #details {
+        position: relative;
+        left: 270px;
+        bottom: 60px;
+        Button {
+            background-color: rgb(59,161,219);
+            border: rgb(59,161,219) 1px;
+        }
+    }
+    
+}

@@ -2,24 +2,15 @@ import React from 'react';
 import axios from 'axios';
 import Router from 'next/router';
 import { 
-  Formik,
   withFormik,
   Form,
   Field,
-  ErrorMessage
 } from 'formik';
 import * as Yup from 'yup';
 
 const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
-const webhookURL = process.env.NEXT_PUBLIC_WEB_HOOK_SLACK;
 
-const defaultFormState = {
-  email: '',
-  password: '',
-  confirmPassword: ''
-}
-
-const InnerForm = ({handleSubmit, values, handleChange, errors, touched, isSubmitting}) => {
+const InnerForm = ({values, handleChange, errors, touched, isSubmitting}) => {
     return (
       <Form>
         <div className="form-field">
@@ -63,7 +54,7 @@ const InnerForm = ({handleSubmit, values, handleChange, errors, touched, isSubmi
           />
         </div>
         <div className="form-field">
-            <button type="submit">
+            <button type="submit" disabled={isSubmitting}>
                 送信
             </button>
         </div>
@@ -95,25 +86,19 @@ const ContactForm = withFormik({
   handleSubmit(values, { resetForm, setSubmitting}) {
     setTimeout(() => {
       let text = `■ 名前: ${values.name}\n■ メールアドレス: ${values.email}\n■ 電話番号: ${values.tel}\n■ お問い合わせ内容: ${values.content}`;
-      let data = {
-        method: 'post',
-        baseURL:webhookURL,
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
-          'Access-Control-Allow-Origin': '*',
-        },
-        data: `payload={ "text": "${ text }"}`
-      }
+      let data = `payload={ "text": "${ text }"}`
       try {
-        axios.request(data)
-        alert('送信しました')
-        resetForm()
-        Router.push('/') // リダイレクト
+        (async() => {
+          await axios.post('/api/formProxy', data);
+          alert('送信しました')
+          resetForm()
+          Router.push('/') // リダイレクト
+        })();
       } catch (error) {
         alert('送信に失敗しました');
       }
       setSubmitting(false);
-    }, 2000)
+    }, 1000)
   }
 })(InnerForm)
 

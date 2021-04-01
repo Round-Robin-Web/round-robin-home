@@ -5,7 +5,7 @@ export default function accountCreate(){
     return (
         <Layout>
             <Head>Account Page</Head>
-            <form className="container position-fixed bottom-0 mb-5 pb-5 " method="post" action="../api/user">
+            <form className="container position-fixed bottom-0 mb-5 pb-5 " method="post" action="../api/account/user">
                 <div className="mb-3">
                     <label htmlFor="inputName" className="form-label">名前</label>
                     <input type="text" className="form-control" name="name"/>

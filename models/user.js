@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import passportLocalMongoose from 'passport-local-mongoose';
 var Schema = mongoose.Schema;
 
 var user = new Schema({
@@ -7,10 +8,6 @@ var user = new Schema({
     required: true
   },
   email: {
-    type: String,
-    required: true
-  },
-  password: {
     type: String,
     required: true
   },
@@ -26,6 +23,10 @@ var user = new Schema({
     type: Date,
     default: Date.now
   }
+});
+
+user.plugin(passportLocalMongoose,{
+    usernameField : "email"
 });
 
 mongoose.models = {};

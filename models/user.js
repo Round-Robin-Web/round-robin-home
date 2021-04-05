@@ -2,10 +2,16 @@ import mongoose from 'mongoose';
 import passportLocalMongoose from 'passport-local-mongoose';
 var Schema = mongoose.Schema;
 
-var user = new Schema({
+var userSchema = new Schema({
   name: {
-    type: String,
-    required: true
+    first : {
+      type : String,
+      required : true
+    },
+    last : {
+      type : String,
+      required : true
+    }
   },
   email: {
     type: String,
@@ -19,18 +25,22 @@ var user = new Schema({
     type : Number,
     required : true
   },
-  since: {
-    type: Date,
-    default: Date.now
+  prefecture : {
+    type : String,
+    required : true
   }
 });
 
-user.plugin(passportLocalMongoose,{
+userSchema.virtual("fullName").get(function(){
+  return this.name.first + "_" + this.name.last
+});
+
+userSchema.plugin(passportLocalMongoose,{
     usernameField : "email"
 });
 
 mongoose.models = {};
 
-var User = mongoose.model('User', user);
+var User = mongoose.model('User', userSchema);
 
 export default User;

@@ -1,21 +1,24 @@
 import connectDB from '../../../middleware/mongodb';
 import User from '../../../models/user';
-import passport from "passport";
 
 const handler = async (req,res) => {
     if(req.method === "POST") {
-        const {name,email,year,university} =req.body;
-        if(name&&email&&year&&university){
-            const user = {
-                name : req.body.name,
-                email  : req.body.email,
-                year : req.body.year,
-                university : req.body.university
-            };
+        const user = {
+            name : {
+                first : req.body.first,
+                last : req.body.last
+            },
+            email  : req.body.email,
+            university : req.body.university,
+            year : req.body.year,
+            prefecture : req.body.prefecture
+        };
+        if(user){
             User.register(user,req.body.password,(error,user) => {
                 if(user) {
                     return res.redirect('/account/login');
                 }else{
+                    console.log(error.message);
                     return res.redirect('/account/create');
                 }
             });
